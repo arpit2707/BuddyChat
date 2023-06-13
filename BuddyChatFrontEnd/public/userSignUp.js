@@ -17,16 +17,16 @@ async function signUp(e) {
     };
 
     const response = await axios.post(
-      "http://localhost:3000/index-signup",
+      "http://localhost:3001/user/register",
       signUpDetails
     );
 
     if (response.status === 201 || 200) {
-      window.location.href = "http://localhost:3000";
+      window.location.href = "http://localhost:3001";
     } else {
       throw new Error("Failed to singup");
     }
   } catch (err) {
-    document.body.innerHTML += `<div style="color:red;">${err}</div>`;
+    document.body.innerHTML += `<div style="color:red;">${err.response.data.error}</div>`;
   }
 }
