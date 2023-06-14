@@ -22,11 +22,12 @@ async function signUp(e) {
     );
 
     if (response.status === 201 || 200) {
+      alert("User Signed Up Successfully");
       window.location.href = "http://localhost:3001";
     } else {
       throw new Error("Failed to singup");
     }
   } catch (err) {
-    document.body.innerHTML += `<div style="color:red;">${err.response.data.error}</div>`;
+    alert(`${err.response.data.error}`);
   }
 }

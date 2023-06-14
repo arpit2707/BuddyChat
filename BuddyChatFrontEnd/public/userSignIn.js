@@ -11,17 +11,18 @@ async function signIn(e) {
     };
     console.log(signInDetails);
     const response = await axios.post(
-      "http://localhost:3000/index-login",
+      "http://localhost:3001/user/login",
       signInDetails
     );
-    console.log(response);
+    console.log("Login ho gya");
     alert(response.data.message);
     localStorage.setItem("token", response.data.token);
     console.log(
       "sign in me token create hokar aa gya::" + localStorage.getItem("token")
     );
-    window.location.href = "/expense/verified-user";
+    window.location.href = "/user/verified-user";
   } catch (err) {
-    document.body.innerHTML += `<div style="color:red;">${err.message}</div>`;
+    console.log(err);
+    // document.body.innerHTML += `<div style="color:red;">${err}</div>`;
   }
 }
