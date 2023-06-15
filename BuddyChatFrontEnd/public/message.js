@@ -27,14 +27,14 @@ send.addEventListener("click", async () => {
       { headers: { Authorization: `${token}` } }
     );
     msg.value = "";
-    addNewMessageToUI(response.data);
-    location.reload();
+    // addNewMessageToUI(response.data);
+    // location.reload();
   } catch (error) {
     console.log(error);
   }
 });
 
-window.addEventListener("DOMContentLoaded", async () => {
+async function loadChat() {
   const token = localStorage.getItem("token");
   try {
     const response = await axios.get(
@@ -42,10 +42,13 @@ window.addEventListener("DOMContentLoaded", async () => {
       { headers: { Authorization: `${token}` } }
     );
     console.log(response.data.response);
+    chatSection.innerHTML = " ";
     response.data.response.forEach((element) => {
       addNewMessageToUI(element);
     });
   } catch (error) {
     console.log(error);
   }
-});
+}
+
+setInterval(loadChat, 5000);

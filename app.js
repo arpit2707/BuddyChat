@@ -9,7 +9,6 @@ const User = require("./BuddyChatBackend/model/userM");
 const Message = require("./BuddyChatBackend/model/messageM");
 const sequelize = require("./BuddyChatBackend/util/db");
 const bodyParser = require("body-parser");
-const jwt = require("jsonwebtoken");
 
 app.use(express.static(path.join(__dirname, "BuddyChatFrontEnd", "public")));
 app.use(
