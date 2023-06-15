@@ -1,4 +1,5 @@
 const userM = require("../model/userM");
+const messageM = require("../model/messageM");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const path = require("path");
@@ -106,4 +107,15 @@ const chatPage = (req, res, next) => {
   }
 };
 
-module.exports = { register, login, chatPage };
+const sendMessage = async (req, res, next) => {
+  try {
+    const msg = req.body.msgng;
+    const sender = req.user.name;
+    const response = await messageM.create({ msg, userId: req.user.id });
+    res.status(200).json({ msg, sender });
+  } catch (error) {
+    return res.status(500).json({ error });
+  }
+};
+
+module.exports = { register, login, chatPage, sendMessage };

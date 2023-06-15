@@ -22,3 +22,5 @@ const authenticate = async (req, res, next) => {
       .json({ success: false, message: "User is not Authorized" });
   }
 };
+
+module.exports = { authenticate };

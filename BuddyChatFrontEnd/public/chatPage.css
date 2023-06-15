@@ -30,21 +30,17 @@ grid-template-areas: "msgSection"
 
 .msgSection{
     grid-area: msgSection;
-    position: absolute;
 }
 .msgInput{
     display: flex;
     grid-area: msgInput;
-    position: absolute;
 }
 
 .msgInput input{
     width: 90%;
-    position: absolute;
 }
 .msgInput button{
     width: 10%;
-    position: absolute;
 }
 
 
