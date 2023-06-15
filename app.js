@@ -4,6 +4,7 @@ const cors = require("cors");
 const path = require("path");
 const mainR = require("./BuddyChatBackend/router/mainR");
 const userR = require("./BuddyChatBackend/router/userR");
+const messageR = require("./BuddyChatBackend/router/messageR");
 const User = require("./BuddyChatBackend/model/userM");
 const Message = require("./BuddyChatBackend/model/messageM");
 const sequelize = require("./BuddyChatBackend/util/db");
@@ -17,12 +18,13 @@ app.use(
   })
 );
 
-User.hasMany(Message, { foreignKey: "userId" });
-Message.belongsTo(User, { foreignKey: "userId" });
+User.hasMany(Message, { foreignKey: "phone" });
+Message.belongsTo(User, { foreignKey: "phone" });
 
 app.use(bodyParser.json());
 app.use("/", mainR);
 app.use("/user", userR);
+app.use("/message", messageR);
 
 sequelize
   .sync()

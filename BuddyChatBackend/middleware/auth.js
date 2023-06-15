@@ -13,7 +13,7 @@ const authenticate = async (req, res, next) => {
     const user = await User.findByPk(userP.userId);
     console.log(JSON.stringify(user));
     req.user = user;
-    console.log(req.user.id);
+    console.log(req.user.phone);
     next();
   } catch (err) {
     console.log(err);

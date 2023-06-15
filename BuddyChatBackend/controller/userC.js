@@ -110,10 +110,11 @@ const chatPage = (req, res, next) => {
 const sendMessage = async (req, res, next) => {
   try {
     const msg = req.body.msgng;
-    const sender = req.user.name;
-    const response = await messageM.create({ msg, userId: req.user.id });
-    res.status(200).json({ msg, sender });
+    const phone = req.user.phone;
+    const response = await messageM.create({ msg, phone: phone });
+    res.status(200).json({ msg });
   } catch (error) {
+    console.log(error);
     return res.status(500).json({ error });
   }
 };

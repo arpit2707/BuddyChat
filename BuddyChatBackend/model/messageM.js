@@ -12,6 +12,9 @@ const message = db.define("message", {
     type: Sequelize.STRING,
     allowNull: false,
   },
+  phone: {
+    type: Sequelize.BIGINT,
+  },
 });
 
 module.exports = message;
