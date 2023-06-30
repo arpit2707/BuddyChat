@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="/chatPage.css">
+    
     <title>BuddyChat</title>
 </head>
 <body>
@@ -14,20 +15,81 @@
             <button>Logout</button>
         </nav>
         <main>
-            <div class="msgSection" id="msgSection">
+            <div>
+                <div class="groupDetails">
+                        <h3 id="msgType" class="msgType">Broadcast</h3>
+                        <div class="suAdmin">
+                        <button id="addMembers">Add Member</button>
+                        <button id="makeAdmins">Make Admin</button>
+                        <button id="removeUsers">Remove Users</button>
+                        </div>
+                </div>
+                <div class="msgSection" id="msgSection">  
+                </div>
+            </div>
 
+            <div id="groupAdd" class="groupAdd">
+                <input type="number" class="addPhone" id="addPhone">
+                <button class="selectedGroupMembers" id="selectedGroupMembers">Add</button>
+                <br>
+                <span id="groupMembers" class="groupMembers" >
+                </span>
             </div>
+
+            <div id="addAdmin" class="addAdmin">
+                <input type="number" class="adminPhone" placeholder="Enter user id" id="adminPhone">
+                <button class="selectedAdmin" id="selectedAdmin">Make Admin</button>
+                <br>
+                <span id="membersList" class="membersList" >
+                </span>
+            </div>
+
+            <div id="removeMembers" class="removeMembers">
+                <input type="number" class="removePhone" placeholder="enter user id" id="removePhone">
+                <button class="removeSelected" id="removeSelected">Remove</button>
+                <br>
+                <span id="groupUsers" class="groupUsers" >
+                </span>
+            </div>
+
             <div class="msgInput">
-            <input type="text" id="msg">
-            <button id="sendMessage">Send</button>
+                <input type="text" id="msg">
+                <button id="sendMessage">Send</button>
             </div>
+
+            <div class="cGroup" id="cGroup">
+                <button class="group" id="group">Create Group</button>
+            </div>
+            
+
+            <div class="menu">
+                 <button class="options"  id="menu">...</button>
+            </div>      
+              
         </main>
-        <div class="sidebar">Sidebar</div>
+        <div class="sidebar" id="sidebar">
+        </div>
         <div class="footer">
             <span>App Developed By Arpit Gaurav</span>
         </div>
+
+
+        <div class="createGroupForm" id="groupForm">
+            <div class="popup-container">
+                <div class="popup-content">
+                    <button class="groupFormClose">X</button>
+                    <label for="groupName">Group Name</label>
+                    <input type="text" name="groupName" id="groupName" required>
+                    <br>
+                    <!-- <button  id="addMember">Add Member</button> -->
+                    <button class="createdGroup" id="createdGroup">Submit</button>
+                </div>
+            </div>
+        </div>
     </div>
-    <script src="/message.js"></script>
+    <script type="module" src="/message.js"></script>
+    <script type="module" src="/group.js"></script>
+    <script type="module" src="/admin.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </body>
 </html>

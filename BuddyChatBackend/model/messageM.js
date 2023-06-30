@@ -14,6 +14,12 @@ const message = db.define("message", {
   },
   phone: {
     type: Sequelize.BIGINT,
+    allowNull: false,
+  },
+  //New content
+  groupId: {
+    type: Sequelize.INTEGER,
+    allowNull: true,
   },
 });
 

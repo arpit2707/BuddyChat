@@ -5,6 +5,7 @@ function signInButton() {
 async function signIn(e) {
   try {
     e.preventDefault();
+    localStorage.clear();
     const signInDetails = {
       email: e.target.email.value,
       password: e.target.password.value,
@@ -23,6 +24,6 @@ async function signIn(e) {
     window.location.href = "/user/verified-user";
   } catch (err) {
     console.log(err);
-    // document.body.innerHTML += `<div style="color:red;">${err}</div>`;
+    document.body.innerHTML += `<div style="color:red;">${err}</div>`;
   }
 }

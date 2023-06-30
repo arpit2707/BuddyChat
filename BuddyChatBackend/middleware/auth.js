@@ -7,7 +7,6 @@ const authenticate = async (req, res, next) => {
   console.log("Auth ::::::::" + req.header("Authorization"));
   try {
     const token = req.header("Authorization");
-
     const userP = jwt.verify(token, "secretKey");
     console.log("USER ID >>>>>" + userP.userId);
     const user = await User.findByPk(userP.userId);
