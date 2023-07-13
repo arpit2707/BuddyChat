@@ -10,6 +10,9 @@ const removeUser = document.getElementById("removeUsers");
 const removeMembers = document.getElementById("removeMembers");
 const groupUser = document.getElementById("groupUsers");
 const removeSelected = document.getElementById("removeSelected");
+const toggleAdd = document.getElementById("toggleAdd");
+const toggleAdmin = document.getElementById("toggleAdmin");
+const toggleRemove = document.getElementById("toggleRemove");
 
 listMember.addEventListener("click", async () => {
   try {
@@ -18,7 +21,6 @@ listMember.addEventListener("click", async () => {
       headers: { Authorization: `${token}` },
     });
     groupMembers.innerHTML = "";
-    const br = document.createElement("br");
     friends.data.users.forEach((user) => {
       const userName = document.createElement("lable");
       const br = document.createElement("br");
@@ -27,6 +29,8 @@ listMember.addEventListener("click", async () => {
       groupMembers.appendChild(br);
     });
     groupAdd.style.display = "block";
+    addAdmin.style.display = "none";
+    removeMembers.style.display = "none";
     console.log(friends.data.users);
   } catch (error) {
     console.log(error);
@@ -34,6 +38,15 @@ listMember.addEventListener("click", async () => {
   }
 });
 
+toggleAdd.addEventListener("click", (event) => {
+  groupAdd.style.display = "none";
+});
+toggleAdmin.addEventListener("click", (event) => {
+  addAdmin.style.display = "none";
+});
+toggleRemove.addEventListener("click", (event) => {
+  removeMembers.style.display = "none";
+});
 selectedGroupMembers.addEventListener("click", async () => {
   try {
     groupAdd.style.display = "none";
@@ -76,7 +89,9 @@ listAdmin.addEventListener("click", async () => {
       membersList.appendChild(userName);
       membersList.appendChild(br);
     });
+    groupAdd.style.display = "none";
     addAdmin.style.display = "block";
+    removeMembers.style.display = "none";
     console.log(friends);
     selectedAdmin.addEventListener("click", async () => {
       try {
@@ -123,6 +138,8 @@ removeUser.addEventListener("click", async () => {
       groupUser.appendChild(userName);
       groupUser.appendChild(br);
     });
+    groupAdd.style.display = "none";
+    addAdmin.style.display = "none";
     removeMembers.style.display = "block";
     removeSelected.addEventListener("click", async () => {
       try {
@@ -140,7 +157,6 @@ removeUser.addEventListener("click", async () => {
           }
         );
         console.log("good4");
-        console.log(response);
       } catch (error) {
         console.log(error);
         console.log("removing request failed");

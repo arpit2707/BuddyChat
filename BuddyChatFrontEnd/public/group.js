@@ -6,6 +6,7 @@ const groupForm = document.getElementById("groupForm");
 const menu = document.getElementById("menu");
 const group = document.getElementById("cGroup");
 const createGroup = document.getElementById("group");
+const groupFormClose = document.getElementById("groupFormClose");
 
 menu.addEventListener("click", () => {
   group.classList.toggle("cGroup");
@@ -13,6 +14,10 @@ menu.addEventListener("click", () => {
 
 createGroup.addEventListener("click", () => {
   groupForm.classList.toggle("createGroupForm");
+});
+
+groupFormClose.addEventListener("click", () => {
+  groupForm.style.display = "none";
 });
 
 addGroup.addEventListener("click", async () => {

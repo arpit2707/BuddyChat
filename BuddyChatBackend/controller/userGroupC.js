@@ -27,10 +27,11 @@ const checkAdmin = async (req, res, next) => {
     // console.log(req.user);
     // console.log(req.query);
     const result = await userGroupM.findOne({
+      attributes: ["isAdmin"],
       where: { userId: req.query.id, groupId: req.query.groupId },
     });
     console.log(result);
-    res.status(200);
+    return res.status(200).json({ result });
   } catch (error) {
     console.log("Here is error");
     console.log(error);
@@ -99,7 +100,7 @@ const makeAdmin = async (req, res, next) => {
     user.isAdmin = "true";
     await user.save();
     console.log("done with that");
-    res.status(200).json({ message: "success" });
+    return res.status(200).json({ message: "success" });
   } catch (error) {
     console.log("Error in making admin");
     console.log(error);
@@ -117,7 +118,7 @@ const getUsers = async (req, res, next) => {
       attributes: ["id", "name", "phone"],
       where: { id: idArray },
     });
-    res.status(200).json({ message: "success", user });
+    return res.status(200).json({ message: "success", user });
   } catch (error) {
     console.log("error in getting group users");
     console.log(error);
@@ -132,7 +133,8 @@ const removeUser = async (req, res, next) => {
         groupId: req.body.params.groupId,
       },
     });
-    res.status(200).json({ message: "deleted" });
+
+    return res.status(200).json({ message: "Removed User Successfully" });
   } catch (error) {
     console.log("removing user");
     console.log(error);

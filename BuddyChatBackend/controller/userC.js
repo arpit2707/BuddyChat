@@ -65,7 +65,7 @@ const login = async (req, res, next) => {
     if (isstringinvalid(email) || isstringinvalid(password)) {
       return res
         .status(400)
-        .json({ err: "Bad Paramters . Something is missing" });
+        .json({ error: "Bad Paramters . Something is missing" });
     }
     console.log("aa gya sign in hone ko");
     const user = await userM.findAll({ where: { email } });
@@ -84,16 +84,16 @@ const login = async (req, res, next) => {
           console.log("password is worng");
           return res
             .status(400)
-            .json({ success: false, message: "Password is incorrect" });
+            .json({ success: false, error: "Password is incorrect" });
         }
       });
     } else {
       return res
         .status(404)
-        .json({ success: false, message: "User doesn't exist" });
+        .json({ success: false, error: "User doesn't exist" });
     }
   } catch (err) {
-    return res.status(500).json({ message: err, success: false });
+    return res.status(500).json({ error: err, success: false });
   }
 };
 

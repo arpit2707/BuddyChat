@@ -13,8 +13,13 @@ const UserGroup = require("./BuddyChatBackend/model/userGroupM");
 const sequelize = require("./BuddyChatBackend/util/db");
 const bodyParser = require("body-parser");
 const userGroupR = require("./BuddyChatBackend/router/userGroupR");
+const http = require("http").createServer(app);
+const dotenv = require("dotenv");
+dotenv.config();
+// const io = require("socket.io")(http);
 
 app.use(express.static(path.join(__dirname, "BuddyChatFrontEnd", "public")));
+app.use("/node_modules", express.static("node_modules"));
 app.use(
   cors({
     origin: "http://127.0.0.1:3001",
@@ -39,9 +44,29 @@ app.use("/user", userR);
 app.use("/message", messageR);
 app.use("/group", groupR);
 app.use("/userGroup", userGroupR);
+// global.io = io;
 
 sequelize
   .sync()
-  .then((result) => {})
-  .catch((err) => {});
-app.listen(3001);
+  .then((result) => {
+    // io.on("connection", (socket) => {
+    //   console.log("A user connected in served side");
+
+    //   // Handle socket events here
+
+    //   socket.on("disconnect", () => {
+    //     console.log("A user disconnected");
+    //   });
+    // });
+    // End of Socket.IO code
+
+    http.listen(3001, () => {
+      console.log("Server is running on port 3001");
+    });
+  })
+  .catch((err) => {
+    // http.listen(3001, () => {
+    //   console.log("Server is running on port 3001");
+    // });
+    console.log(err);
+  });

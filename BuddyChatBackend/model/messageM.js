@@ -10,7 +10,7 @@ const message = db.define("message", {
   },
   msg: {
     type: Sequelize.STRING,
-    allowNull: false,
+    allowNull: true,
   },
   phone: {
     type: Sequelize.BIGINT,
@@ -19,6 +19,10 @@ const message = db.define("message", {
   //New content
   groupId: {
     type: Sequelize.INTEGER,
+    allowNull: true,
+  },
+  fileURL: {
+    type: Sequelize.STRING,
     allowNull: true,
   },
 });

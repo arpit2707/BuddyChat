@@ -1,4 +1,4 @@
-*{padding: 0; margin: 0; box-sizing: border-box; font-family: cursive;}
+*{padding: 0; margin: 0; box-sizing: border-box; font-family:'Courier New', Courier, monospace;}
 .container{
     display:grid;
     height: 100vh;
@@ -13,12 +13,21 @@
 
 .suAdmin{
     display:none;
+
 }
+.suAdmin button{
+    background-color: #264653;
+    color: #e9c46a;
+}
+
 nav{
     display: flex;
     align-items: center;
     background-color:darkcyan;
     grid-area: navbar;
+}
+nav h2{
+    margin-left: 397px;
 }
 nav button{
     position: absolute;
@@ -43,7 +52,7 @@ grid-template-areas: "msgSection"
 
 
 
-.msgInput input{
+.msgInput #msg{
     border-radius: 2rem;
 }
 
@@ -54,7 +63,7 @@ grid-template-areas: "msgSection"
     width: 100%;
     /* border-radius: 2em; */
     border: 1px solid #FFF;
-    background: #cfeb9c;
+    background:  #e9c46a;
     color: #FFFFFF;
     font-size: 18px;
     font-weight: bold;
@@ -62,8 +71,11 @@ grid-template-areas: "msgSection"
     text-transform: uppercase;
     cursor: pointer;
 }
-.msgInput input{
-    width: 90%;
+.msgInput #msg{
+    width: 70%;
+}
+.msgInput #fileInput{
+    width: 20%;
 }
 .msgInput button{
     width: 10%;
@@ -71,35 +83,59 @@ grid-template-areas: "msgSection"
 .createGroupForm{
     display: none;
 }
+.sendMessage{
+    background-color: #264653;
+    color: #e9c46a;
+}
+
+.fileInput{
+    background-color: #264653;
+    color: #e9c46a;
+}
 .groupAdd{
     display: none;
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 50%;
+    height:fit-content;
     right: 25%;
     left: 25%;
     top: 25%;
     bottom: 25%;
+    font-size: x-large;
+    text-align-last: center;
+    border-radius: 23px;
     background-color: rgb(175, 149, 149); 
+    align-items: center;
 }
 .groupAdd.show{
     display: block;
 }
-
-
+.addAdmin button{
+    background-color: #264653;
+    color: #e9c46a;
+}
+.removeMembers button{
+    background-color: #264653;
+    color: #e9c46a;
+}
+.groupAdd button{
+    background-color: #264653;
+    color: #e9c46a;
+}
 .addAdmin{
     display: none;
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 50%;
+    height: fit-content;
     right: 25%;
     left: 25%;
     top: 25%;
     bottom: 25%;
+    border-radius: 23px;
     background-color: rgb(175, 149, 149); 
 }
 .addAdmin.show{
@@ -111,12 +147,13 @@ grid-template-areas: "msgSection"
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 50%;
+    height: fit-content;
     right: 25%;
     left: 25%;
     top: 25%;
     bottom: 25%;
+    border-radius: 4px;
     background-color: rgb(175, 149, 149); 
 }
 .removeMembers.show{
@@ -124,17 +161,18 @@ grid-template-areas: "msgSection"
 }
 .popup-container {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 90%;
-    height: 90%;
+    left: 58%;
+    top: 42%;
+    width: fit-content;
+    height: fit-content;
     right: 5%;
-    left: 5%;
-    top: 5%;
     bottom: 5%;
     background-color: rgba(0, 0, 0, 0.5);
   }
-  
+  .popup-container button{
+    background-color: #264653;
+    color: #e9c46a;
+  }
   .popup-content {
     position: absolute;
     top: 50%;
@@ -181,7 +219,7 @@ grid-template-areas: "msgSection"
     width: 100%;
     /* border-radius: 2em; */
     border: 1px solid #FFF;
-    background: #21a9d3;
+    background: #e76f51;
     color: #FFFFFF;
     font-size: 18px;
     font-weight: bold;

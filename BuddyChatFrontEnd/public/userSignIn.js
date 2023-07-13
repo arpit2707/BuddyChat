@@ -24,6 +24,6 @@ async function signIn(e) {
     window.location.href = "/user/verified-user";
   } catch (err) {
     console.log(err);
-    document.body.innerHTML += `<div style="color:red;">${err}</div>`;
+    alert(`${err.response.data.error}`);
   }
 }

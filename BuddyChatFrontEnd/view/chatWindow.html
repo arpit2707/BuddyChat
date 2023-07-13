@@ -31,6 +31,7 @@
             <div id="groupAdd" class="groupAdd">
                 <input type="number" class="addPhone" id="addPhone">
                 <button class="selectedGroupMembers" id="selectedGroupMembers">Add</button>
+                <button id="toggleAdd">Close</button>
                 <br>
                 <span id="groupMembers" class="groupMembers" >
                 </span>
@@ -39,6 +40,7 @@
             <div id="addAdmin" class="addAdmin">
                 <input type="number" class="adminPhone" placeholder="Enter user id" id="adminPhone">
                 <button class="selectedAdmin" id="selectedAdmin">Make Admin</button>
+                <button id="toggleAdmin">Close</button>
                 <br>
                 <span id="membersList" class="membersList" >
                 </span>
@@ -47,14 +49,16 @@
             <div id="removeMembers" class="removeMembers">
                 <input type="number" class="removePhone" placeholder="enter user id" id="removePhone">
                 <button class="removeSelected" id="removeSelected">Remove</button>
+                <button id="toggleRemove">Close</button>
                 <br>
                 <span id="groupUsers" class="groupUsers" >
                 </span>
             </div>
 
             <div class="msgInput">
-                <input type="text" id="msg">
-                <button id="sendMessage">Send</button>
+                <input type="text"  id="msg">
+                <input type="file" id="fileInput" class="fileInput">
+                <button id="sendMessage" class="sendMessage">Send</button>
             </div>
 
             <div class="cGroup" id="cGroup">
@@ -68,6 +72,9 @@
               
         </main>
         <div class="sidebar" id="sidebar">
+            <div>
+                
+            </div>
         </div>
         <div class="footer">
             <span>App Developed By Arpit Gaurav</span>
@@ -77,7 +84,7 @@
         <div class="createGroupForm" id="groupForm">
             <div class="popup-container">
                 <div class="popup-content">
-                    <button class="groupFormClose">X</button>
+                    <button class="groupFormClose" id="groupFormClose">X</button>
                     <label for="groupName">Group Name</label>
                     <input type="text" name="groupName" id="groupName" required>
                     <br>
@@ -90,6 +97,7 @@
     <script type="module" src="/message.js"></script>
     <script type="module" src="/group.js"></script>
     <script type="module" src="/admin.js"></script>
+    <script src="/node_modules/socket.io-client/dist/socket.io.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </body>
 </html>
