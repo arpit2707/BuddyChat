@@ -15,7 +15,9 @@ const bodyParser = require("body-parser");
 const userGroupR = require("./BuddyChatBackend/router/userGroupR");
 const http = require("http").createServer(app);
 const dotenv = require("dotenv");
+require("./BuddyChatBackend/cron/cronSetup");
 dotenv.config();
+
 // const io = require("socket.io")(http);
 
 app.use(express.static(path.join(__dirname, "BuddyChatFrontEnd", "public")));
@@ -47,7 +49,7 @@ app.use("/userGroup", userGroupR);
 // global.io = io;
 
 sequelize
-  .sync({ force: true })
+  .sync()
   .then((result) => {
     // io.on("connection", (socket) => {
     //   console.log("A user connected in served side");
