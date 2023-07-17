@@ -233,3 +233,73 @@ background-color:darkgray;
 grid-area: sidebar;}
 .footer{background-color: brown;
 grid-area: footer;}
+
+
+
+
+
+.container {
+  
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+      grid-template-rows: 0.2fr 1.7fr 0.1fr;
+      grid-template-areas: "navbar"
+                           "main"
+                           "footer";
+    }
+  }
+
+  
+nav {
+    @media (max-width: 768px) {
+      h2 {
+        margin-left: 20px;
+      }
+    }
+  }
+
+  .main {
+    @media (max-width: 768px) {
+      grid-template-rows: 1fr 0.1fr;
+      grid-template-areas: "msgSection"
+                           "msgInput";
+    }
+  }
+
+  
+.groupAdd {
+    @media (max-width: 768px) {
+      width: 80%;
+      left: 10%;
+      right: 10%;
+    }
+  }
+
+  .addAdmin {
+    @media (max-width: 768px) {
+      width: 80%;
+      left: 10%;
+      right: 10%;
+    }
+  }
+
+  .removeMembers {
+    @media (max-width: 768px) {
+      width: 80%;
+      left: 10%;
+      right: 10%;
+    }
+  }
+
+  
+.popup-container { 
+    @media (max-width: 768px) {
+      left: 10%;
+      right: 10%;
+    }
+  }
+  .menu {
+    @media (max-width: 768px) {
+      bottom: 20px;
+    }
+  }

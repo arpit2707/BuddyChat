@@ -47,7 +47,7 @@ app.use("/userGroup", userGroupR);
 // global.io = io;
 
 sequelize
-  .sync()
+  .sync({ force: true })
   .then((result) => {
     // io.on("connection", (socket) => {
     //   console.log("A user connected in served side");
