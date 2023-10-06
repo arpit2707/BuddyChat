@@ -161,21 +161,6 @@ msg.addEventListener("keypress", function (event) {
   }
 });
 
-// const socket = io();
-// socket.on("connect", () => {
-//   console.log(`connected with the id ${socket.id}`);
-// });
-// socket.on("messageSent", (data) => {
-//   // Update all instances with the new message
-//   console.log("nnoooooooooooo");
-//   addNewMessageToUI(data);
-// });
-
-// function uploadFile(file) {
-//   const formData = new FormData();
-//   formData.append("file", file);
-//   return formData;
-// }
 send.addEventListener("click", async () => {
   try {
     console.log(msg.value);
@@ -196,7 +181,6 @@ send.addEventListener("click", async () => {
       headers: { Authorization: `${token}` },
       "Content-Type": "multipart/form-data",
     });
-    // socket.emit("sendMessage", msgs);
     msg.value = "";
     fileInput.value = "";
     //     // }

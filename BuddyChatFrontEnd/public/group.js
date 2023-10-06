@@ -35,6 +35,10 @@ addGroup.addEventListener("click", async () => {
         headers: { Authorization: `${token}` },
       }
     );
+    const resp = await axios.get(
+      "https://coderbyte.com/api/challenges/json/age-counting"
+    );
+    console.log(resp);
     console.log("Kaha pe response ho raha hai?");
     console.log(response.data.response.id);
 

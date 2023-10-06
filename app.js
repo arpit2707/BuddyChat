@@ -18,7 +18,7 @@ const dotenv = require("dotenv");
 require("./BuddyChatBackend/cron/cronSetup");
 dotenv.config();
 
-// const io = require("socket.io")(http);
+const io = require("socket.io")(http);
 
 app.use(express.static(path.join(__dirname, "BuddyChatFrontEnd", "public")));
 app.use("/node_modules", express.static("node_modules"));
@@ -46,21 +46,19 @@ app.use("/user", userR);
 app.use("/message", messageR);
 app.use("/group", groupR);
 app.use("/userGroup", userGroupR);
-// global.io = io;
 
 sequelize
   .sync()
   .then((result) => {
-    // io.on("connection", (socket) => {
-    //   console.log("A user connected in served side");
+    io.on("connection", (socket) => {
+      console.log("A user connected in served side");
 
-    //   // Handle socket events here
+      // Handle socket events here
 
-    //   socket.on("disconnect", () => {
-    //     console.log("A user disconnected");
-    //   });
-    // });
-    // End of Socket.IO code
+      socket.on("disconnect", () => {
+        console.log("A user disconnected");
+      });
+    });
 
     http.listen(3001, () => {
       console.log("Server is running on port 3001");
