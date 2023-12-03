@@ -1,6 +1,7 @@
 const CronJob = require("cron").CronJob;
 const messageM = require("../model/messageM");
 const archiveM = require("../model/archiveChatM");
+const Sequelize = require("sequelize");
 
 const job = new CronJob("0 0 * * *", async () => {
   const oneDayAgo = new Date();
