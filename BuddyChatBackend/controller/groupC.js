@@ -1,6 +1,6 @@
 const groupM = require("../model/groupM");
 const userGroupM = require("../model/userGroupM");
-
+//Pending adding data validator
 const newGroup = async (req, res, next) => {
   const groupName = req.body.name;
   const creator = req.user.name;
